@@ -15,7 +15,7 @@ export const handler: Handler = async (event) => {
 
   const body = JSON.parse(event.body!);
 
-  if (!body.name || !body.email || !body.imageUrl || !body.description) {
+  if (!body.name || !body.email || !body.description) {
     return {
       statusCode: 400,
       body: JSON.stringify({ error: "Missing required fields" }),
@@ -29,9 +29,10 @@ export const handler: Handler = async (event) => {
     const collection = db.collection("supportTickets");
 
     const doc = {
-      ...body,
-      status: "new",
       createdAt: new Date(),
+      status: "new",
+      imageUrl: "",
+      ...body,
     };
     const result = await collection.insertOne(doc);
 
