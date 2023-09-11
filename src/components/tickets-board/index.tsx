@@ -30,9 +30,9 @@ const TableHeader = () => {
   );
 };
 
-const TableRow = (item: TicketData, index: number) => {
+const TableRow = (item: TicketData, index: number, navigation: any) => {
   const handleItemPress = () => {
-    console.log("press...", item._id);
+    navigation.navigate("Ticket Details", { ticketId: item._id });
   };
 
   const rowStyle = index % 2 === 0 ? styles.tableEvenRow : styles.tableOddRow;
@@ -54,7 +54,7 @@ const TableRow = (item: TicketData, index: number) => {
   );
 };
 
-const TicketBoard = () => {
+const TicketBoard = ({ navigation }: any) => {
   const [data, setData] = useState<TicketData[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -93,7 +93,7 @@ const TicketBoard = () => {
       <TableHeader />
       <FlatList
         data={data}
-        renderItem={({ item, index }) => TableRow(item, index)}
+        renderItem={({ item, index }) => TableRow(item, index, navigation)}
       />
       <Pressable onPress={getData} style={styles.refreshButton}>
         <Ionicons name="refresh" size={24} color="black" />
