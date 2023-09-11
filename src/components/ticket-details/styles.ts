@@ -55,4 +55,19 @@ export default StyleSheet.create({
     marginBottom: 8,
     borderRadius: 8,
   },
+  statusButton: {
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 15,
+    borderRadius: 8,
+    marginBottom: 10,
+    shadowColor: "rgba(0, 0, 0, 0.37)",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 0.2,
+    elevation: 1,
+  },
 });

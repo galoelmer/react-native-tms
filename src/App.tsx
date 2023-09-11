@@ -7,6 +7,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import TicketForm from "./components/ticket-form";
 import TicketBoard from "./components/tickets-board";
 import TicketDetails from "./components/ticket-details";
+import UpdateStatus from "./components/update-status";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -20,6 +21,14 @@ const TicketsStackScreen = () => {
     >
       <Stack.Screen name="Ticket Board" component={TicketBoard} />
       <Stack.Screen name="Ticket Details" component={TicketDetails} />
+      <Stack.Screen
+        name="Update Status"
+        component={UpdateStatus}
+        options={{
+          animation: "slide_from_bottom",
+          presentation: "modal",
+        }}
+      />
     </Stack.Navigator>
   );
 };

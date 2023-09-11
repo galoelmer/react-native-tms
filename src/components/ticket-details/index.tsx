@@ -1,15 +1,22 @@
 import { useEffect, useState } from "react";
-import { Text, View, ActivityIndicator, Image, ScrollView } from "react-native";
+import {
+  Text,
+  View,
+  ActivityIndicator,
+  Image,
+  ScrollView,
+  Pressable,
+} from "react-native";
 
 import getTicketById from "../../api/getTicketById";
 import formatDate from "../../utils/formatDate";
 
 import styles from "./styles";
 
-const TicketDetails = ({ route }: any) => {
+const TicketDetails = ({ route, navigation }: any) => {
   const [ticketData, setTicketData] = useState<any>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const { ticketId } = route.params;
+  const { ticketId, status: currentStatus } = route.params;
 
   const loadTicketData = async () => {
     try {
@@ -20,6 +27,13 @@ const TicketDetails = ({ route }: any) => {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const handleStatusPress = () => {
+    navigation.navigate("Update Status", {
+      ticketId,
+      currentStatus: currentStatus ?? ticketData.status,
+    });
   };
 
   useEffect(() => {
@@ -36,9 +50,13 @@ const TicketDetails = ({ route }: any) => {
 
   return (
     <ScrollView style={styles.container}>
+      <Pressable onPress={handleStatusPress} style={styles.statusButton}>
+        <Text style={styles.status}>
+          Status: {currentStatus ?? ticketData.status}
+        </Text>
+      </Pressable>
       <View style={styles.header}>
         <Text style={styles.ticketId}>Ticket ID: {ticketData._id}</Text>
-        <Text style={styles.status}>Status: {ticketData.status}</Text>
       </View>
       <Text style={styles.name}>Name: {ticketData.name}</Text>
       <Text style={styles.email}>Email: {ticketData.email}</Text>
