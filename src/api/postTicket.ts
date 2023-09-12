@@ -5,7 +5,10 @@ import uploadImageToImgBB from "./uploadImage";
 
 async function postTicket(formData: any) {
   try {
-    const imageUrl = await uploadImageToImgBB(formData.imageUrl);
+    const imageUrl =
+      formData.imageUrl === ""
+        ? ""
+        : await uploadImageToImgBB(formData.imageUrl);
     const url =
       Platform.OS === "web"
         ? "/api/createTicket"
