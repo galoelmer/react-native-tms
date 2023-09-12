@@ -4,10 +4,11 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Ionicons from "@expo/vector-icons/Ionicons";
 
-import TicketForm from "./components/ticket-form";
-import TicketBoard from "./components/tickets-board";
-import TicketDetails from "./components/ticket-details";
+import TicketForm from "./screens/ticket-form";
+import TicketBoard from "./screens/tickets-board";
+import TicketDetails from "./screens/ticket-details";
 import UpdateStatus from "./components/update-status";
+import ReplyForm from "./screens/reply-form";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -24,6 +25,14 @@ const TicketsStackScreen = () => {
       <Stack.Screen
         name="Update Status"
         component={UpdateStatus}
+        options={{
+          animation: "slide_from_bottom",
+          presentation: "modal",
+        }}
+      />
+      <Stack.Screen
+        name="Reply Form"
+        component={ReplyForm}
         options={{
           animation: "slide_from_bottom",
           presentation: "modal",

@@ -107,6 +107,7 @@ const TicketForm = () => {
             setFormData({ ...formData, description: text })
           }
           multiline
+          textAlignVertical="top"
           accessibilityLabel="Description Input"
         />
 
@@ -133,17 +134,6 @@ const TicketForm = () => {
           />
         )}
 
-        <Pressable
-          onPress={handleSubmit}
-          style={styles.submitButton}
-          disabled={isLoading}
-        >
-          {isLoading ? (
-            <ActivityIndicator size={25} color="#ffffff" />
-          ) : (
-            <Text style={styles.submitButtonText}>SUBMIT</Text>
-          )}
-        </Pressable>
         {success && (
           <Text style={styles.successText}>We received your message!</Text>
         )}
@@ -151,6 +141,17 @@ const TicketForm = () => {
           <Text style={styles.generalErrorText}>{errors.general}</Text>
         )}
       </View>
+      <Pressable
+        onPress={handleSubmit}
+        style={styles.submitButton}
+        disabled={isLoading}
+      >
+        {isLoading ? (
+          <ActivityIndicator size={25} color="#ffffff" />
+        ) : (
+          <Text style={styles.submitButtonText}>SUBMIT</Text>
+        )}
+      </Pressable>
     </ScrollView>
   );
 };

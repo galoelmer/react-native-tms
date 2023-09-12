@@ -31,7 +31,7 @@ export default StyleSheet.create({
     borderWidth: 1,
   },
   multilineInput: {
-    height: 100,
+    height: 180,
   },
   uploadImageButton: {
     flexDirection: "row",
@@ -39,7 +39,7 @@ export default StyleSheet.create({
     alignItems: "center",
     padding: 12,
     borderRadius: 8,
-    marginBottom: 40,
+    marginBottom: 16,
     backgroundColor: "#6C63FF",
   },
   uploadImageButtonText: {
@@ -58,14 +58,14 @@ export default StyleSheet.create({
     alignItems: "center",
     padding: 16,
     borderRadius: 8,
-    marginBottom: 40,
+    marginTop: 40,
     backgroundColor: "#000000",
   },
   submitButtonText: {
     color: "#ffffff",
-    letterSpacing: 2,
+    letterSpacing: 1,
     fontWeight: "bold",
-    fontSize: 18,
+    fontSize: 16,
   },
   successText: {
     color: "#ba63ff",
