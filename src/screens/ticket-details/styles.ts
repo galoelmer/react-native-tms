@@ -86,7 +86,7 @@ export default StyleSheet.create({
   },
   modalCloseButton: {
     position: "absolute",
-    top: 0,
+    top: 30,
     right: 30,
   },
 });

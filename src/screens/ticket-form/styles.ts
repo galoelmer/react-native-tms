@@ -60,6 +60,9 @@ export default StyleSheet.create({
     borderRadius: 8,
     marginTop: 40,
     backgroundColor: "#000000",
+    alignSelf: "center",
+    width: "100%",
+    maxWidth: 600,
   },
   submitButtonText: {
     color: "#ffffff",

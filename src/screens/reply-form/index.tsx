@@ -79,6 +79,12 @@ const EmailReplyScreen = ({ route, navigation }: any) => {
 const styles = StyleSheet.create({
   container: {
     padding: 16,
+    alignSelf: "center",
+    width: "100%",
+    maxWidth: 600,
+    backgroundColor: "#fff",
+    marginTop: 20,
+    borderRadius: 10,
   },
   input: {
     borderWidth: 1,

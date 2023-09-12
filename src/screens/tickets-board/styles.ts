@@ -16,7 +16,7 @@ export default StyleSheet.create({
   },
   headerRow: {
     flexDirection: "row",
-    backgroundColor: "#f0f0f0",
+    backgroundColor: "#52d2c5",
     borderBottomWidth: 1,
     borderBottomColor: "#ddd",
   },
